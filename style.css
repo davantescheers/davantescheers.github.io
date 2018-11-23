@@ -6,3 +6,12 @@ h1 {
     color: darkblue;
     text-align: center;
 }
+.menu
+{
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 50px;
+}
