@@ -8,6 +8,10 @@ h1 {
 
 .menu {color: red;
 background-color: black;}
+a {
+  color: red;
+background-color: black;}
+}
 }
 .menu
 {
