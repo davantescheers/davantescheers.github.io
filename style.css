@@ -5,6 +5,9 @@ color: black;}
 h1 {
     color: darkblue;
     text-align: center;
+
+li {color: red;
+background-color: black;}
 }
 .menu
 {
