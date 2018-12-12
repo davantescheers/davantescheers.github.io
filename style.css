@@ -1,4 +1,4 @@
-body {
+body  {
     background-color: yellow;
 color: black;}
 
@@ -6,9 +6,8 @@ h1 {
     color: darkblue;
     text-align: center;
 
-.menu {color: red;
-background-color: black;}
-a {
+a
+{
   color: red;
 background-color: black;
 }
