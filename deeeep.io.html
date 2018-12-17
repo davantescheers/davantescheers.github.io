@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="noselect">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Deeeep.io - Eat fish, become the shark!</title>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!--<link rel="stylesheet" type="text/css"  href="assets/style.css">-->
+    <script type="text/javascript" src="https://crowdl.io/assets/api/crowdl.min.js"></script>
+
+</head>
+<body>
+  <div id="joystick-area"></div>
+  <div id="app">
+    <template v-if="playing">
+      <div id="bottom-bar">
+        <chat v-show="chatDialogOpen"></chat>
+        <stats
+          :stats="stats"
+          :xp-percentage="currentXpPercentage"
+          :current-level="currentLevel"
+          :fish-level="fishLevel"
+          :piranha-count="piranhaCount"
+          :piranha-percentage="piranhaPercentage"
+          :current-xp="currentXp"
+          :xp-left="currentXpLeft"></stats>
+      </div>
+      <tribes :current-tribe="currentTribe" :nearby-tribes="nearbyTribes" v-if="showingTribeDialog"></tribes>
+      <choices :choices="choices" :minimized="choicesDialogMinimized" :current-area="currentArea" v-if="choices.length > 0"></choices>
+      <animal-info :animal-infos="animalInfos"></animal-info>
+      <area-kings :ranking="ranking" v-if="!isMobile && ranking.ranking.length >= 1"></area-kings>
+      <div id="top-right-menu" v-show="!rightMenuHidden">
+        <div>
+          <div class="button-container">
+            <a href="#" @click.prevent="toggleSettingsDialog()"><i class="material-icon">settings</i></a>
+            <a href="#" @click.prevent="zoomOut()"><i class="material-icon">zoom_out</i></a>
+            <a href="#" @click.prevent="zoomIn()"><i class="material-icon">zoom_in</i></a>
+            <a href="#" @click.prevent="toggleChatDialog()" v-if="isMobile"><i class="material-icon">chat</i></a>
+          </div>
+          <tribe-requests :requests="tribeRequests"></tribe-requests>
+        </div>
+        <ranking :ranking="ranking" v-if="ranking.ranking.length >= 1"></ranking>
+      </div>
+    </template>
+    <skins :animal-tiers="animalTiers" v-if="showingStoreDialog"></skins>
+    <play-history :play-history="playHistory" v-if="showingPlayHistory"></play-history>
+    <server-messages :messages="serverMessages"></server-messages>
+    <fps-display :fps-data="fpsData" :chat-muted="chatMuted"></fps-display>
+    <settings :renderer-options="rendererOptions" v-if="showingSettingsDialog"></settings>
+    <home
+            v-show="showingMenu"
+            :login-methods="loginMethods"
+            :user-data="userData"
+            :selected-server-info="selectedServerInfo"
+            :gamemode="gamemode"
+            :available-gamemodes="availableGameModes"></home>
+  </div>
+  <div id="adContainer" style="
+      position: absolute;
+      display: none;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;"></div>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="bundle.js?v=134"></script>
+  <style lang="scss">
+    @import 'assets/style.css?v=51';
+    @import 'assets/socicon.css?v=35';
+
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73137708-10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-73137708-10');
+  </script>
+  <!--<script type="text/javascript">
+    window._urq = window._urq || [];
+    _urq.push(['initSite', 'f8019897-8b60-44bd-9fa4-a62c27d4fd2f']);
+    (function() {
+      var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
+      ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
+    })();
+  </script>-->
+  <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    if(typeof gapi !== "undefined") {
+        function start() {
+            // 2. Initialize the JavaScript client library.
+            window.gapi = gapi;
+            gapi.client.init({
+                'apiKey': 'AIzaSyBNkyj3L_u6NYhvsQqEJ6F31zB_vPXIoC8',
+            });
+        };
+
+        // 1. Load the JavaScript client library.
+        gapi.load('client', start);
+    }
+  </script>
+</body>
+</html>
