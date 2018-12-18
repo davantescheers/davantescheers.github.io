@@ -1,112 +1,1017 @@
-<!DOCTYPE html>
-<html lang="en" class="noselect">
+<!doctype html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>Deeeep.io - Eat fish, become the shark!</title>
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="utf-8">
 
-  <!--<link rel="stylesheet" type="text/css"  href="assets/style.css">-->
-    <script type="text/javascript" src="https://crowdl.io/assets/api/crowdl.min.js"></script>
+    <meta property="og:title" content="Play Deeeep.io - Eat Fish, Become the Shark!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://deeeep.io/deeeeppromo.jpg" />
+    <meta property="og:description" content="Come to the bottom of the ocean in this new .io game! Play Now!" />
+    <meta property="fb:app_id" content="1015947075180337" />
 
-</head>
-<body>
-  <div id="joystick-area"></div>
-  <div id="app">
-    <template v-if="playing">
-      <div id="bottom-bar">
-        <chat v-show="chatDialogOpen"></chat>
-        <stats
-          :stats="stats"
-          :xp-percentage="currentXpPercentage"
-          :current-level="currentLevel"
-          :fish-level="fishLevel"
-          :piranha-count="piranhaCount"
-          :piranha-percentage="piranhaPercentage"
-          :current-xp="currentXp"
-          :xp-left="currentXpLeft"></stats>
-      </div>
-      <tribes :current-tribe="currentTribe" :nearby-tribes="nearbyTribes" v-if="showingTribeDialog"></tribes>
-      <choices :choices="choices" :minimized="choicesDialogMinimized" :current-area="currentArea" v-if="choices.length > 0"></choices>
-      <animal-info :animal-infos="animalInfos"></animal-info>
-      <area-kings :ranking="ranking" v-if="!isMobile && ranking.ranking.length >= 1"></area-kings>
-      <div id="top-right-menu" v-show="!rightMenuHidden">
-        <div>
-          <div class="button-container">
-            <a href="#" @click.prevent="toggleSettingsDialog()"><i class="material-icon">settings</i></a>
-            <a href="#" @click.prevent="zoomOut()"><i class="material-icon">zoom_out</i></a>
-            <a href="#" @click.prevent="zoomIn()"><i class="material-icon">zoom_in</i></a>
-            <a href="#" @click.prevent="toggleChatDialog()" v-if="isMobile"><i class="material-icon">chat</i></a>
-          </div>
-          <tribe-requests :requests="tribeRequests"></tribe-requests>
-        </div>
-        <ranking :ranking="ranking" v-if="ranking.ranking.length >= 1"></ranking>
-      </div>
-    </template>
-    <skins :animal-tiers="animalTiers" v-if="showingStoreDialog"></skins>
-    <play-history :play-history="playHistory" v-if="showingPlayHistory"></play-history>
-    <server-messages :messages="serverMessages"></server-messages>
-    <fps-display :fps-data="fpsData" :chat-muted="chatMuted"></fps-display>
-    <settings :renderer-options="rendererOptions" v-if="showingSettingsDialog"></settings>
-    <home
-            v-show="showingMenu"
-            :login-methods="loginMethods"
-            :user-data="userData"
-            :selected-server-info="selectedServerInfo"
-            :gamemode="gamemode"
-            :available-gamemodes="availableGameModes"></home>
-  </div>
-  <div id="adContainer" style="
-      position: absolute;
-      display: none;
-    z-index: 9999;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;"></div>
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="bundle.js?v=134"></script>
-  <style lang="scss">
-    @import 'assets/style.css?v=51';
-    @import 'assets/socicon.css?v=35';
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Play Deeeep.io - Eat Fish, Become the Shark!" />
+    <meta name="twitter:image" content="https://deeeep.io/deeeeppromo.jpg" />
+    <meta name="twitter:description" content="Come to the bottom of the ocean in this new .io game! Play Now!" />
 
-  </style>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73137708-10"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-73137708-10');
-  </script>
-  <!--<script type="text/javascript">
-    window._urq = window._urq || [];
-    _urq.push(['initSite', 'f8019897-8b60-44bd-9fa4-a62c27d4fd2f']);
-    (function() {
-      var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
-      ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
-    })();
-  </script>-->
-  <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-  <script src="https://apis.google.com/js/api.js"></script>
-  <script>
-    if(typeof gapi !== "undefined") {
-        function start() {
-            // 2. Initialize the JavaScript client library.
-            window.gapi = gapi;
-            gapi.client.init({
-                'apiKey': 'AIzaSyBNkyj3L_u6NYhvsQqEJ6F31zB_vPXIoC8',
-            });
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Deeeep.io - Eat Fish, Become the Shark!</title>
+
+    <link rel="stylesheet" href="css/image-picker.css">
+    <link rel="stylesheet" href="css/simplebar.css">
+
+    <link rel="stylesheet" href="main.min.css?v=n7"/>
+
+    <link href="css/materialicons.css?v=2" rel="stylesheet">
+
+    <link href="css/roboto.css?v=2" rel="stylesheet">
+    <link href="css/socicon.css?v=2" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+
+    <style>
+        html {
+            color: #ffffff;
+        }
+
+        body {
+            background-color: #003b7d;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #game-loading-message {    color: #ffffff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-weight: bold;
+            font-size: 2.5vw;
+            text-shadow: 2px 2px 7px rgba(0,0,0,.3);
+            text-align: center;
+        }
+
+        .game-loading {
+            background: #05385c; /* Old browsers */
+            background: -moz-linear-gradient(top, #084e81 0%, #05385c 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #084e81 0%,#05385c 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #084e81 0%,#05385c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#084e81', endColorstr='#05385c',GradientType=0 ); /* IE6-9 */
+        }
+
+        .fill-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+        }
+    </style>
+
+
+
+    <!--<script
+            src="js/jquery-3.1.1.min.js"></script>-->
+
+    <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+    <!--<script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>-->
+
+    <script>
+
+
+        function main() {
+            if(window.isCordova){
+
+                document.addEventListener("backbutton", function() {
+                    window.gameInterface.backButtonPressed();
+                }, false);
+
+                var defaultOptions = {
+                    isTesting: false
+                };
+                AdMob.setOptions( defaultOptions );
+                window.navigator = navigator;
+                window.statusBar = StatusBar;
+                window.AdMob = AdMob;
+
+                if(window.navigator.globalization) {
+                    window.navigator.globalization.getPreferredLanguage(
+                            function (language) {
+                                console.log('language: ' + language.value + '\n');
+                                window.setLocale(language.value.toLowerCase());
+                            },
+                            function () {
+                                console.log('Error getting language\n');
+                                var userLang = navigator.language || navigator.userLanguage;
+                                if (userLang)
+                                    window.setLocale(userLang);
+                                else
+                                    window.setLocale('en');
+                            }
+                    );
+                }
+            }
         };
+        document.addEventListener('deviceready', main, false);
 
-        // 1. Load the JavaScript client library.
-        gapi.load('client', start);
-    }
-  </script>
+
+
+    </script>
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "b6ca9eea-528a-4334-94df-b2cb93281a90",
+            autoRegister: false, /* Set to true to automatically prompt visitors */
+            subdomainName: 'deeeepio',
+            welcomeNotification: {
+                disable: true
+            },
+            promptOptions: {
+                actionMessage: "Want to be notified when new animals are released?",
+                showCredit: false
+            },
+            notifyButton: {
+                enable: false /* Set to false to hide */
+            }
+        }]);
+    </script>
+
+    <script type="text/javascript" src="https://crowdl.io/assets/api/crowdl.min.js?v=1"></script>
+    <script type="text/javascript">
+      window.crowdl.init({
+        projectId: 1,
+        showPercentages: true
+      });
+    </script>
+</head>
+
+<body>
+    <div class='toast' style='display:none'>Press again to exit</div>
+
+    <script type="text/javascript">
+      console.clear = function() {}
+
+    </script>
+
+    <div class="fill-screen game-loading">
+        <span id="game-loading-message" data-crowdl="loading">loading...</span>
+    </div>
+    <div id="menu-container">
+        <div id="share-dialog" style="display:none">
+            <div class="inner">
+                <span id="generating-gif-note" style="display: none;">Generating gif...</span>
+                <div id="screenshot-select-container">
+                    <select id="screenshot-select" style="display: none">
+
+                    </select>
+                </div>
+                <div id="screenshot-preview-container">
+                    <img />
+                </div>
+                <div class="row">
+                    <div class="half-width text-center">
+                        <button id="fb-share" class="btn btn-primary btn-share btn-fb">
+                            <span class="social-icon socicon-facebook"></span>
+                            <!--<span class="btn-text">Facebook</span>-->
+                        </button>
+                        <button id="twitter-share" class="btn btn-primary btn-share btn-twitter">
+                            <span class="social-icon socicon-twitter"></span>
+                            <!--<span class="btn-text">Twitter</span>-->
+                        </button>
+                    </div>
+                    <div class="half-width text-center">
+                        <button type="button" class="btn continue-button"><i class="material-icons">play_arrow</i><span data-crowdl="close">Close</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="finished-room-container" style="display: none">
+            <div>
+                <div class="auto-width-children">
+                    <div id="ovo-player-1" class="ovo-mode-visible ovo-player right-buffer">
+                        <div class="title row"></div>
+                        <div class="row bottom-buffer">
+                            <img class="picture logged" src="https://deeeep.io/images/face.gif" />
+                            <img class="animal" src="" />
+                        </div>
+                        <div class="row name"></div>
+                        <div class="row social-networks logged bottom-buffer"></div>
+                        <div class="row row logged description-container bottom-buffer">
+                            <p class="description"></p>
+                        </div>
+                        <div class="row text-center">
+                            <div class="score-title" data-crowdl="streak">streak</div>
+                            <div class="score"></div>
+                        </div>
+                    </div>
+                    <div id="lms-leaderboard" class="lms-mode-visible room-leaderboard right-buffer">
+                        <div class="title row"></div>
+                        <div class="row"><table>
+                            <thead>
+                            <th>Pos.</th>
+                            <th>Level</th>
+                            <th>Name</th>
+                            <th>Kills</th>
+                            <th>Score</th>
+                            </thead>
+                            <tbody>
+                            <tr id="pos-1"><td class="pos">#1</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-2"><td class="pos">#2</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-3"><td class="pos">#3</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-4"><td class="pos">#4</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-5"><td class="pos">#5</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-6"><td class="pos">#6</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-7"><td class="pos">#7</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-8"><td class="pos">#8</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-9"><td class="pos">#9</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            <tr id="pos-10"><td class="pos">#10</td><td class="level"><img /></td></td><td class="name"></td><td class="kills"></td><td class="score"></td></tr>
+                            </tbody>
+                        </table></div>
+                    </div>
+                    <div id="team-1" class="team-mode-visible room-leaderboard right-buffer">
+                        <div class="title row"></div>
+                        <div class="row"><table>
+                            <thead>
+                            <th>Level</th>
+                            <th>Team</th>
+                            <th>Name</th>
+                            <th>Kills</th>
+                            <th>Score</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table></div>
+                    </div>
+                    <div id="finished-room-chatbox" class="right-buffer">
+                        <div class="title row" data-crowdl="chat">Chat</div>
+                        <div class="row" id="finished-room-messages"><ul></ul></div>
+                        <div class="row">
+                            <input id="finished-room-chatbox-message" type="text" >
+                            <button id="send-finished-room-message" class="btn">Send</button>
+                        </div>
+                    </div>
+                    <div id="team-2" class="team-mode-visible room-leaderboard">
+                        <div class="title row"></div>
+                        <div class="row"><table>
+                            <thead>
+                            <th>Level</th>
+                            <th>Team</th>
+                            <th>Name</th>
+                            <th>Kills</th>
+                            <th>Score</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table></div>
+                    </div>
+                    <div id="ovo-player-2" class="ovo-mode-visible ovo-player right-buffer">
+                        <div class="title row"></div>
+                        <div class="row bottom-buffer">
+                            <img class="picture logged right-buffer" src="https://deeeep.io/images/face.gif" />
+                            <img class="animal" src="" />
+                        </div>
+                        <div class="row name"></div>
+                        <div class="row social-networks logged bottom-buffer"></div>
+                        <div class="row row logged description-container bottom-buffer">
+                            <p class="description"></p>
+                        </div>
+                        <div class="row text-center">
+                            <div class="score-title" data-crowdl="streak">streak</div>
+                            <div class="score"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row top-buffer" style="text-align: center;border-top: 1px solid rgba(148, 148, 148, 0.27);padding-top: 15px;">
+                    <button type="button" class="btn btn-red" id="close-finished-room" data-crowdl="close">Close</button>
+                    <button type="button" class="btn lms-mode-visible" id="after-spec" data-crowdl="spectate">Spectate</button>
+                    <button type="button" class="btn ovo-mode-visible" id="keep-playing" data-crowdl="keep-playing">Keep playing</button>
+                </div>
+            </div>
+        </div>
+        <div id="death-dialog" style="display:none">
+            <div class="row lms-mode-visible lms-result-container">
+                <div class="result"></div>
+            </div>
+            <div class="row">
+                <h3 class="death-dialog-title">You were killed by</h3>
+            </div>
+            <div class="row eaten">
+                <div class="killer-picture killer-logged"><img src="https://deeeep.io/images/face.gif" /></div>
+                <div class="killer-name"></div>
+                <div class="killer-social-networks killer-logged">
+
+                </div>
+            </div>
+            <div class="row eaten killer-logged killer-description-container">
+                <p class="killer-description"></p>
+            </div>
+            <div class="row eaten game-resume va-middle-child">
+                <span data-crowdl="he-she">He/she</span>
+                <img class="killer-animal" src="" />
+                <span data-crowdl="killed">killed</span>
+                <img class="victim-animal" src="" />
+                <span data-crowdl="you">you</span>
+            </div>
+            <div class="row not-eaten va-middle-child">
+                <span data-crowdl="you">You </span>
+                <img class="victim-animal" src="" />
+            </div>
+            <div class="row">
+                <div class="third-width text-center">
+                    <div class="row game-duration-title" data-crowdl="game-duration-title">Played</div>
+                    <div class="row game-duration"></div>
+                </div>
+                <div class="third-width text-center">
+                    <div class="row score-title" data-crowdl="score-title">Score</div>
+                    <div class="row score"></div>
+                </div>
+                <div class="third-width text-center">
+                    <div class="row kills-title" data-crowdl="kills-title">Kill Count</div>
+                    <div class="row kills"></div>
+                </div>
+            </div>
+            <div class="row actions">
+                <div class="half-width text-center">
+                    <button type="button" class="btn share-button"><i class="material-icons">present_to_all</i><span data-crowdl="share">Share</span><span class="gif-note button-note" style="display: none;">GIF</span></button>
+                </div>
+                <div class="half-width text-center">
+                    <button type="button" class="btn continue-button"><i class="material-icons">play_arrow</i><span data-crowdl="continue">Continue</span></button>
+                </div>
+            </div>
+        </div>
+        <div id="respawn-timer-container" class="" style="display: none">
+            <div class="row bottom-buffer">
+                <span id="respawn-time-left"></span>
+            </div>
+            <div class="row" style="text-align: center;">
+                <button type="button" class="btn" id="play-respawn-timer" data-crowdl="respawn">Respawn</button>
+            </div>
+        </div>
+        <div id="menu-main-content">
+            <div id="share-container" class="desktop-visible">
+                <ul>
+                    <li><div class="g-ytsubscribe" data-channelid="UCaqjWCTvO12R_WKV70F2eOA" data-layout="default"></div></li>
+                </ul>
+            </div>
+            <div id="logo-container"><span class="logo-text" data-crowdl="title">deeeep.io</span><span class="name-reminder" data-crowdl="sub-title">(with 4 e's)</span></div>
+            <div id="next-round-xp" style="display: none;">start next round in the same server with <span></span> of xp!</div>
+            <div class="hide-when-load"><p id="connection-message">Connecting to nearest server...
+                (if it takes too long, reload the site or <a style='color: #8ed1ff;text-decoration: underline;' href='https://deeeep.io'>try the https version</a>)</p></div>
+            <input class="show-when-load" id="name" type="text" style="display:none" maxlength="22" placeholder="Write a name" />
+            <div class="row">
+                <select class="show-when-load server-select" style="display:none;"></select>
+                <button class="show-when-load ovo-mode-visible btn btn-sm btn-blue" id="room" style="display:none">Room</button>
+            </div>
+            <button class="show-when-load" id="start" style="display:none">Play</button><button class="show-when-load btn ffa-mode-visible original-mode-visible" id="spec" style="">Spec</button><button class="btn" id="options" style="display:none"><i class="material-icons">&#xE8B8;</i></button>
+            <div class="language-selector-container mobile-visible">
+                <div class="crowdl-selector"></div>
+            </div>
+        </div>
+        <div id="ad-container" class="desktop-visible">
+            <div class="row advertisement-note" style="display: none;text-align: center;margin-bottom: 7px;color: #a9abad;font-size: .8em;">
+                Advertisement
+            </div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- deeeep sub play 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1450371010768745"
+                 data-ad-slot="7176984313"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    <div id="menu-overlay" class="fill-screen">
+        <div id="gamemode-selector" style="display: none;">
+            <ul></ul>
+        </div>
+        <div id="left-sidebar-container" class="desktop-visible">
+            <div  class="info-block low-padding" style="text-align: center">
+                <a class="btn btn-orange" href="https://crowdl.io/deeeep/entries" target="_blank">Help translate Deeeep.io!</a>
+            </div>
+            <div class="info-block no-padding">
+                <span class="title">Lastest YouTube videos</span>
+                <div id="recent-videos">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div id="controls" class="info-block">
+                <p id="controls-info" style="margin-bottom: 15px;">Welcome to deeeep.io!
+                    <b>Controls</b>
+                    <b>MOUSE</b> to move
+                    <b>CLICK</b> to use boost (might miss if too close)
+                    <b>ENTER</b> to chat (will reveal your position)
+                    <b>M</b> hide/show chat messages
+                    <b>ESCAPE</b> show main menu
+                </p>
+                <div style="text-align: center">
+                    <!--<a id="view-changelog" class="btn" href="http://deeeep.io/changelog.html" target="_blank">06-23 Changelog</a>-->
+                    <div class=""><a style="padding: 5px; display: block;" href="https://www.youtube.com/watch?v=oLiUb5z1A-0" target="_blank"><img style="border-radius: 5px; max-width: 100%;" src="http://deeeep.io/images/hump-yt.jpg"></a></div>
+                </div>
+            </div>
+            <!--<div id="about" class="info-block">
+                <p><b>deeeep.io</b> is a new game so I need all the feedback you can give! Also, share this game please :)
+
+                Please, send me any ideas you might have through deeeep.io's <a href="http://reddit.com/r/deeeepio">REDDIT</a> page</p>
+                <a href="http://iogames.space">More .io Games</a>
+                <a class="random-io-btn btn btn-primary" href="https://iogames.top/random-game" data-crowdl="random-io-game">Play Random .io Game</a>
+            </div>-->
+            <div id="cross-promo">
+                <script>
+                  var trackOutboundLink = function(url) {
+                    ga('send', 'event', 'outbound', 'click', url, {
+                      'transport': 'beacon',
+                      'hitCallback': function(){window.open(url, '_blank');}
+                    });
+                  }
+                </script>
+                <a href="//starve.io" target="_blank" onclick="trackOutboundLink('//starve.io'); return false;"><img src="//deeeep.io/images/also_try_starveio.png?v=2"></a>
+            </div>
+        </div>
+        <div class="links top-left desktop-visible">
+            <ul>
+                <li>Created by</li>
+                <li><a href="http://twitter.com/fed3m" target="_blank">Federico Mouse</a></li>
+                <li style="position: absolute;right: -114px;top: 5px;"><a class="twitter-follow-button" href="https://twitter.com/fed3m" data-show-count="false">@fed3m</a></li>
+            </ul>
+        </div>
+        <div class="links bottom-left desktop-visible">
+            <ul>
+                <li>Reddits</li>
+                <li>:</li>
+                <li><a href="http://reddit.com/r/deeeepio" target="_blank">General</a></li>
+                <li>/</li>
+                <li><a href="http://reddit.com/r/deeeepioartworks" target="_blank">Artworks</a> <!--<a href="https://www.reddit.com/r/deeeepioartworks/comments/6z57zx/announcement_winners_of_design_competition/" target="_blank" style="color: #00ffff;">("Stay Wild" Competition WINNERS)</a> --></li>
+                <li>|</li>
+                <li><a href="http://discord.io/deeeepio" target="_blank">Discord Server</a></li>
+                <li>|</li>
+                <li><a href="https://iogames.top/random-game" data-crowdl="random-io-game" target="_blank">Random .io Game</a></li>
+                <li>|</li>
+                <li><a href="http://iogames.space" target="_blank">More Games</a></li>
+                <!--<li>|</li>
+                <li><a href="http://deeeep.io/new" style="color: #00ffaf;" target="_blank">Beta Version (try and report bugs)</a></li>-->
+            </ul>
+        </div>
+
+        <div id="right-sidebar-container" class="desktop-visible">
+
+            <div id="cross-promo" style="margin-bottom: 15px">
+                <a href="http://raaaaft.io" target="_blank" onclick="trackOutboundLink('//raaaaft.io'); return false;"><img  style="max-width: 100%;max-height: 100%;" src="//deeeep.io/images/raaaaft-ad.png?v=3"></a>
+            </div>
+            <div id="poll-container" class="info-block" style="display: block;background-color: rgba(19,72,115,.89);color: #fff;padding: 10px 20px;">
+                <a href="http://deeeep.io/new" style="/* color: #94b4cd; font-size: 0.9em;*/" target="_blank" class="btn">Try Deeeep.io BETA!</a>
+
+                <!--<a href='//www.quotestoknow.com/Quotes/Positive' poll='1028349x7550b0Da-43' style='width:100%; display:block; text-align:right;' class="hidden">positive quotes</a>-->
+
+                <!--<p style="color: #fff;font-weight: bold;">"Slowdowns" seems to be host-related, I'll try to solve them today. Meanwhile play in BETA 2 or 3 for better gameplay</p>-->
+            </div>
+            <div id="today-ranking-container" class="info-block" style="display: none;">
+                <div class="options">
+                    <select id="ranking-type">
+                        <option class="ffa-mode-visible original-mode-visible" value="highscore" data-crowdl="highest-scores">Highest scores</option>
+                        <option class="ffa-mode-visible original-mode-visible" value="longest" data-crowdl="longest-plays">Longest plays</option>
+                        <option class="ffa-mode-visible original-mode-visible" value="mostkills" data-crowdl="most-kills">Most kills</option>
+                        <option class="ffa-mode-visible original-mode-visible" value="flappy">Flappy combo</option>
+                        <option class="ffa-mode-visible original-mode-visible" value="timetolast">Time to top tier</option>
+                        <option class="team-mode-visible" value="highscore">Best stats</option>
+                    </select>
+                    <span data-crowdl="of">of</span>
+                    <select id="ranking-period">
+                        <option value="today" data-crowdl="today">Today</option>
+                        <option value="week" data-crowdl="last-7-days">Last 7 days</option>
+                        <option value="month" data-crowdl="last-30-days">Last 30 days</option>
+                        <option value="always" data-crowdl="always">Always</option>
+                    </select>
+                </div>
+                <table>
+                </table>
+                <canvas id="chart" class="ovo-mode-visible" style="display:none"></canvas>
+            </div>
+            <div id="poll-container" class="info-block" style="display: block;background-color: rgba(19,72,115,.89);color: #fff;padding: 10px 20px;">
+                <a href="http://deeeep.io/new" style="/* color: #94b4cd; font-size: 0.9em;*/" target="_blank" class="btn">Try Deeeep.io BETA!</a>
+
+                <!--<a href='//www.quotestoknow.com/Quotes/Positive' poll='1028349x7550b0Da-43' style='width:100%; display:block; text-align:right;' class="hidden">positive quotes</a>-->
+
+                <!--<p style="color: #fff;font-weight: bold;">"Slowdowns" seems to be host-related, I'll try to solve them today. Meanwhile play in BETA 2 or 3 for better gameplay</p>-->
+            </div>
+            <!--<div id="team-container" class="info-block team-mode-visible">
+                <div id="no-team-container">
+                    <div class="inner" style="display: block;">
+                        <span>You don't belong to a team</span>
+                        <button class="btn" id="new-team">New team</button>
+                    </div>
+                </div>
+                <div id="has-team-container" style="display:none">
+                    <div class="row">
+                        <div class="col-80">
+                            <div class="team-logo"><img src="http://www.picz.ge/img/s2/1503/13/7/7106ab539f78.gif" /></div>
+                            <div class="team-name"></div>
+                            <div class="team-shortname"></div>
+                        </div>
+                        <div class="col-20 team-actions" style="text-align: right">
+                            <button class="btn" id="view-team"><i class="material-icons">zoom_in</i></button>
+                            <button class="btn" id="edit-team"><i class="material-icons">mode_edit</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div id="user-container" class="info-block">
+                <div id="social-login-container">
+                    <div class="social-login-title">
+                        <h3 data-crowdl="sign-in">Sign in with:</h3>
+                    </div>
+                    <div id="social-login-inner" style="display: block;">
+                        <button id="fb-login" class="btn btn-primary btn-login btn-fb">
+                            <span class="social-icon socicon-facebook"></span>
+                            <!--<span class="btn-text">Facebook</span>-->
+                        </button>
+                        <button id="gplus-login" class="btn btn-primary btn-login btn-gplus">
+                            <span class="social-icon socicon-googleplus"></span>
+                            <!--<span class="btn-text">Google</span>-->
+                        </button>
+                        <button id="vk-login" class="btn btn-primary btn-login btn-vk">
+                            <span class="social-icon socicon-vkontakte"></span>
+                            <!--<span class="btn-text">VK</span>-->
+                        </button>
+                        <button id="twitter-login" class="btn btn-primary btn-login btn-twitter">
+                            <span class="social-icon socicon-twitter"></span>
+                            <!--<span class="btn-text">Twitter</span>-->
+                        </button>
+                    </div>
+                </div>
+                <div id="logged-user-container" style="display:none">
+                    <div class="row">
+                        <div class="col-80">
+                            <div class="user-picture"><img src="https://deeeep.io/images/face.gif" /></div>
+                            <div class="user-name"></div>
+                            <div class="user-username"></div>
+                        </div>
+                        <div class="col-20 user-profile-actions" style="text-align: right">
+                            <button class="btn" id="edit-profile"><i class="material-icons">mode_edit</i></button>
+                            <!--<button class="btn btn-red"><i class="material-icons">delete</i></button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="language-selector-container desktop-visible">
+                <div class="crowdl-selector"></div>
+            </div>
+        </div>
+
+        <div id="mobile-links-container" class="desktop-visible">
+            <div id="play-store-container">
+                <a href="https://play.google.com/store/apps/details?id=com.ouwi.deeeep" target="_blank">
+                    <img src="https://deeeep.io/playstorepromo.png?v=2" />
+                </a>
+            </div>
+            <div id="app-store-container">
+                <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1199205849&mt=8" target="_blank">
+                    <img src="https://deeeep.io/appstorepromo.png?v=2" />
+                </a>
+            </div>
+        </div>
+
+        <!--<div id="edit-team-container" class="fill-screen" style="display: none">
+            <div class="inner">
+                <form id="edit-team-form">
+                    <div class="row offset-bottom">
+                        <div class="col-60">
+                            <div class="offset-right">
+                                <div class="row offset-bottom">
+                                    <div class="col-30"><label for="edit-team-name" data-crowdl="team-name">Nombre</label></div>
+                                    <div class="col-70"><input type="text" class="full-width" id="edit-team-name" name="name"/></div>
+                                </div>
+                                <div class="row offset-bottom">
+                                    <div class="col-30"><label for="edit-team-shortname" data-crowdl="team-shortname">Short name</label></div>
+                                    <div class="col-70"><input type="text" class="full-width" id="edit-team-shortname" name="shortname"/></div>
+                                </div>
+                                <div class="row offset-bottom">
+                                    <div class="col-30"><label for="edit-team-color" data-crowdl="team-color">Color</label></div>
+                                    <div class="col-70"><input type="text" class="full-width" id="edit-team-color" name="color"/></div>
+                                </div>
+                                <div class="row offset-bottom">
+                                    <div class="col-30"><label data-crowdl="team-description">Description</label></div>
+                                    <div class="col-70">
+                                        <textarea id="edit-team-description" class="full-width" name="description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-40">
+                            <div class="offset-left">
+                                <div class="row">
+                                    <div class="col-30"><label data-crowdl="team-logo">Logo</label></div>
+                                    <div class="col-70">
+                                        <div class="row"><img style="display: none;" src="http://www.picz.ge/img/s2/1503/13/7/7106ab539f78.gif" id="edit-team-logo" /></div>
+                                        <div class="row"><button class="full-width" id="upload-logo" data-crowdl="upload">Upload...</button></div>
+                                        <input type="text" name="logo" id="upload-team-logo" style="display: none;" />
+                                        <div id="edit-team-logo-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: right;">
+                        <button type="button" class="btn btn-red" id="close-edit-team" data-crowdl="close">Close</button>
+                        <button type="button" class="btn" id="save-edit-team" data-crowdl="save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>-->
+    </div>
+
+    <div id="profile-container" class="fill-screen" style="display: none">
+        <div class="inner">
+            <form id="profile-form">
+                <div class="row offset-bottom">
+                    <div class="col-60">
+                        <div class="offset-right">
+                            <div class="row offset-bottom">
+                                <div class="col-30"><label for="profile-name" data-crowdl="profile-name">Nombre</label></div>
+                                <div class="col-70"><input type="text" class="full-width" id="profile-name" name="name"/></div>
+                            </div>
+                            <div class="row offset-bottom">
+                                <div class="col-30"><label data-crowdl="profile-social">Social</label></div>
+                                <div class="col-70">
+                                    <div class="col-20 text-center social-network-item" id="fb-link">
+                                        <div class="row social-network-icon">
+                                            <div class="toggle socicon-facebook"></div>
+                                        </div>
+                                        <div class="row"><input type="checkbox" name="display-fb" id="display-fb" /></div>
+                                    </div>
+                                    <div class="col-20 text-center social-network-item" id="gplus-link">
+                                        <div class="row social-network-icon">
+                                            <div class="toggle socicon-googleplus"></div>
+                                        </div>
+                                        <div class="row"><input type="checkbox" name="display-gplus" id="display-gplus" /></div>
+                                    </div>
+                                    <div class="col-20 text-center social-network-item" id="youtube-link">
+                                        <div class="row social-network-icon">
+                                            <div class="toggle socicon-youtube"></div>
+                                        </div>
+                                        <div class="row"><input type="checkbox" name="display-youtube" id="display-youtube" /></div>
+                                    </div>
+                                    <div class="col-20 text-center social-network-item" id="vk-link">
+                                        <div class="row social-network-icon">
+                                            <div class="toggle socicon-vkontakte"></div>
+                                        </div>
+                                        <div class="row"><input type="checkbox" name="display-vk" id="display-vk" /></div>
+                                    </div>
+                                    <div class="col-20 text-center social-network-item" id="twitter-link">
+                                        <div class="row social-network-icon">
+                                            <div class="toggle socicon-twitter"></div>
+                                        </div>
+                                        <div class="row"><input type="checkbox" name="display-twitter" id="display-twitter" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row offset-bottom">
+                                <div class="col-30"><label data-crowdl="profile-message">Message</label></div>
+                                <div class="col-70">
+                                    <textarea id="profile-message" class="full-width" name="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-40">
+                        <div class="offset-left">
+                            <div class="row">
+                                <div class="col-30"><label data-crowdl="profile-picture">Picture</label></div>
+                                <div class="col-70">
+                                    <div class="row"><img style="display: none;" src="//deeeep.io/images/face.gif" id="profile-picture" /></div>
+                                    <div class="row"><button class="full-width" id="upload-picture" data-crowdl="upload">Upload...</button></div>
+                                    <input type="text" name="picture" id="user-picture" style="display: none;" />
+                                    <div id="container"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="text-align: right;">
+                    <button type="button" class="btn btn-red" id="close-profile" data-crowdl="close">Close</button>
+                    <button type="button" class="btn" id="save-profile" data-crowdl="save">Save</button>
+                </div>
+                <div class="row-separator"></div>
+                <div class="row">
+                    <h3 data-crowdl="death-screen-preview">"Death screen" preview:</h3>
+                    <div id="death-dialog-preview">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="join-room-container" class="floating-box fill-screen" style="display: none">
+        <div class="inner">
+            <form id="room-form">
+                <div class="row offset-bottom">
+                    <div class="col-30"><label for="room-key" data-crowdl="room-key">Room key</label></div>
+                    <div class="col-70"><input type="text" class="full-width" id="room-key" name="name" maxlength="16" minlength="1" required/></div>
+                </div>
+                <div class="row offset-bottom">
+                    <div class="col-30"><label for="room-rounds" data-crowdl="room-rounds">Rounds</label></div>
+                    <div class="col-70 text-left"><input type="number" class="full-width" id="room-rounds" name="name" maxlength="2" minlength="1" /></div>
+                </div>
+                <div class="row-separator"></div>
+                <div class="row" style="text-align: center;">
+                    <button type="button" class="btn btn-primary" id="join-room" data-crowdl="join">Join</button>
+                    <button type="button" class="btn" id="create-room" data-crowdl="create">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="options-container" class="fill-screen" style="display:none">
+        <div class="inner">
+            <div id="control-mode-selector" class="mobile-visible" style="display:none;">
+                <div>Joystick control mode</div>
+                <div>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="joystick-mode" class="onoffswitch-checkbox" id="joystick-mode" checked>
+                        <label class="onoffswitch-label" for="joystick-mode">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="quality-mode-selector">
+                <div>High quality mode</div>
+                <div>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="quality-mode" class="onoffswitch-checkbox" id="quality-mode" checked>
+                        <label class="onoffswitch-label" for="quality-mode">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="text-align: right;">
+                <button type="button" class="btn" id="close-options" data-crowdl="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="dialog-container" class="fill-screen" style="display: none">
+        <div class="inner">
+            <div class="row bottom-buffer">
+                <span id="dialog-message"></span>
+            </div>
+            <div class="row" style="text-align: center;">
+                <button type="button" class="btn" id="dialog-close" data-crowdl="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="loading-room-container" class="fill-screen" style="display: none">
+        <div class="inner">
+            <div id="loading-room-count"></div>
+            <div id="loading-room-chatbox" class="col right-buffer bottom-buffer">
+                <div class="row" id="loading-room-messages"><ul></ul></div>
+                <div class="row">
+                    <input id="loading-room-chatbox-message" type="text" maxlength="50" >
+                    <button id="send-loading-room-message" class="btn">Send</button>
+                </div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <button type="button" class="btn btn-red" id="close-loading-room" data-crowdl="close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-overlay" class="fill-screen">
+        <div id="fish-level-info-container" class="horizontal-center">
+            <ul></ul>
+        </div>
+        <div id="ovo-header" style="display: none">
+            <div id="player-1" class="ovo-player colx-5-5">
+                <div class="colx-2"><div class="player-animal"><img src="https://deeeep.io/assets/characters/crocodile.png"></div></div>
+                <div class="colx-10 health-container">
+                    <div class="health-meter">
+                        <div class="health-inner"></div>
+                    </div>
+                    <div class="text-left">
+                        <span class="name">[GG] GoneGaming</span>
+                        <span class="score">10</span>
+                    </div>
+                </div>
+            </div>
+            <div class="colx-1 timer-container">
+                <div class="timer"><span>25</span></div>
+            </div>
+            <div id="player-2" class="ovo-player colx-5-5">
+                <div class="colx-10 health-container">
+                    <div class="health-meter">
+                        <div class="health-inner"></div>
+                    </div>
+                    <div class="text-right">
+                        <span class="score">0</span>
+                        <span class="name">unnamed</span>
+                    </div>
+                </div>
+                <div class="colx-2"><div class="player-animal"><img src="https://deeeep.io/assets/characters/giantsquid.png"></div></div>
+            </div>
+        </div>
+        <div id="fps-container">
+            <span></span>
+        </div>
+        <div id="server-events">
+            <ul>
+            </ul>
+        </div>
+        <div id="kills" class="team-mode-visible lms-mode-visible ovo-mode-visible">
+            <ul>
+            </ul>
+        </div>
+        <div id="pd-info-container" style="display:none;">
+            <div class="team-1">
+                <div class="col team-info">
+                    <span class="team-name"></span>
+                    <span class="team-score"></span>
+                    <span class="player-count"></span>
+                </div>
+                <div class="col pearl-model">
+                    <div class="pearl-stand"></div>
+                    <div class="pearl"></div>
+                    <div class="pearl-cover"></div>
+                    <div class="pearl-health health-meter">
+                        <div class="health-inner"></div>
+                    </div>
+                </div>
+                <div class="col players">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="team-2">
+                <div class="col players">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="col pearl-model">
+                    <div class="pearl-stand"></div>
+                    <div class="pearl"></div>
+                    <div class="pearl-cover"></div>
+                    <div class="pearl-health health-meter">
+                        <div class="health-inner"></div>
+                    </div>
+                </div>
+                <div class="col team-info">
+                    <span class="team-name"></span>
+                    <span class="team-score"></span>
+                    <span class="player-count"></span>
+                </div>
+            </div>
+        </div>
+        <div id="players-alive" class="lms-mode-visible" style="display:none">
+            <span class="count"></span><span data-crowdl="alive-count"></span>
+        </div>
+        <div id="leaderboard" class="ffa-mode-visible team-mode-visible original-mode-visible" style="display:none">
+            <div class="leaderboard-header">
+                <h3 data-crowdl="leaderboard">Leaderboard</h3>
+                <h4></h4>
+            </div>
+            <ul>
+                <div class="team-leaderboard" id="team-leaderboard-1">
+                    <li id="top-1"></li>
+                    <li id="top-2"></li>
+                    <li id="top-3"></li>
+                    <li id="top-4"></li>
+                </div>
+                <div class="team-leaderboard" id="team-leaderboard-2">
+                    <li id="top-5"></li>
+                    <li id="top-6"></li>
+                    <li id="top-7"></li>
+                </div>
+                <div class="team-leaderboard" id="team-leaderboard-3">
+                    <li id="top-8"></li>
+                    <li id="top-9"></li>
+                    <li id="top-10"></li>
+                </div>
+            </ul>
+        </div>
+
+        <div id="area-leaders" class="desktop-visible ffa-mode-visible">
+            <ul></ul>
+        </div>
+
+        <div id="choices-dialog" style="display:none">
+            <button class="minimize">hide</button>
+            <div class="inner">
+                <h3 class="title" data-crowdl="choose-animal">choose your next animal</h3>
+                <div class="choice-list-container able">
+                    <div class="choice-list">
+                    </div>
+                    <span class="choices-title">can live in current habitat</span>
+                </div>
+                <div class="choice-list-container unable">
+                    <div class="choice-list">
+                    </div>
+                    <span class="choices-title">cannot live in current habitat</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="chat-dialog" style="display:none">
+            <div class="inner">
+                <span data-crowdl="chat-message">write a message and press enter</span>
+            </div>
+            <input class="chat-message" onpaste="return false;" type="text" maxlength="100">
+            <div class="row top-buffer"><label for="team-only" class="team-mode-visible pointer-events-all">(to team only <input type="checkbox" id="team-only"/>)</label></div>
+            <div class="mobile-visible">
+                <button class="btn send-chat-button" onclick="window.gameInterface.sendChat()">Send</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="seaio-game" class="game"></div>
+
+<script type="text/javascript">
+  var ver = 633;
+
+  if ( window.isCordova ) {
+    $.ajaxSetup({ cache: true });
+    $("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://deeeep.io/css/image-picker.css?v=2"
+    }).appendTo("head");
+    $("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://deeeep.io/css/simplebar.css?v=2"
+    }).appendTo("head");
+    $("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://deeeep.io/main.min.css?v=43"
+    }).appendTo("head");
+    $("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://deeeep.io/css/roboto.css?v=2"
+    }).appendTo("head");
+    $("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://deeeep.io/css/materialicons.css?v=2"
+    }).appendTo("head");
+
+            var tasks = ["https://deeeep.io/bundle.min.js?v="+ver]
+
+            function executeTasks (tasks) {
+                var i = 0;
+                var executeTask = function (task) {
+                    $.getScript(task).done(function () {
+                        if (++i <= tasks.length) {
+                            executeTask(tasks[i]);
+                        }
+                    });
+                }
+                executeTask(tasks[i]);
+            }
+
+            executeTasks(tasks);
+        }
+    </script>
+
+
+    <!--<script type="text/javascript" src="js/phaser-ads.min.js"></script>-->
+
+    <!--<script type="text/javascript" src="js/gif.js"></script>-->
+
+    <!--<script type="text/javascript" src="js/crowdl.js"></script>-->
+
+    <script src="bundle.min.js?v=n44"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-73137708-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </body>
-</html>
+</html>/
