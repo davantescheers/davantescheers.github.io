@@ -14,7 +14,7 @@
 
 
         <!-- Favicon & CSS normalize -->
-        <link rel="shortcut icon" href="https://scratch.mit.edu/favicon.ico" />
+        <a rel="shortcut icon" href="https://scratch.mit.edu/favicon.ico" />
         <link rel="stylesheet" href="https://scratch.mit.edu/css/lib/normalize.min.css" />
 
         <!-- Polyfills -->
