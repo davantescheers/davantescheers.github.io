@@ -1,6 +1,7 @@
 html {box-sizing: border-box;}
 
 *, *:before, *:after {box-sizing: inherit;
+}/* deze code stelt de maximale en minimale breedte van de body in */
 
 body {background-color: Thistle;font-family: cursive;margin-left: auto;
 margin-right: auto;
@@ -12,7 +13,7 @@ padding-left: 24px;
 padding-right: 24px;
 }
 
-html {background: radial-gradient(circle, SkyBlue, SkyBlue 50%, LightCyan 50%, SkyBlue);background-size: 8px 8px;
+html {background: radial-gradient(circle, skyblue, orange 50%);background-size: 8px 8px;
 }
 
 header {
@@ -20,7 +21,7 @@ header {
 header p {float: left;font-size: 16px;font-weight: bold;margin-top: 0px;}header h1 {font-size: 16px;text-align: right;
 }
 
-nav ul {list-style-type: none;background-color: #B577B5;
+nav ul {list-style-type: none;background-color: LightSkyBlue;
 border: 2px solid black;
 border-radius: 10px;
 font-family: sans-serif;
@@ -34,26 +35,23 @@ border-right: none;
 }
 nav ul li a {
 text-decoration: none;
-color: #111111;}
+color: black;}
 
 nav ul li a:hover {
 text-decoration: underline;
 }
 
 nav li.selected {
-color: #606060;}section {
-background-color: #FFFFFF;
+color: #606060;}/* biografieeÌˆn */section {
+background-color: white;
 margin-bottom: 24px;
 min-height: 320px;
 padding-left: 24px;
 padding-right: 24px;
 }
 
-
-
 aside {
 }
-
 
 footer {
 }
@@ -67,13 +65,15 @@ footer p.contact {
 text-align: right;
 }
 
-img.small {float: left;height: 200px;margin-bottom: 24px;margin-right: 24px;}img.medium {
+/* kleine plaatjes krijgen een maximale hoogte van 200px */
+
+img.small {float: left;height: 200px;margin-bottom: 24px;margin-right: 24px;}/* middelgrote plaatjes mogen de helft van het element waarin ze zich bevinden innemen, met een maximale breedte van 360px */img.medium {
 max-width: 360px;
-width: 50%;}
+width: 50%;}/* grote afbeeldingen mogen de hele breedte van het element waarin ze zich bevinden innemen */
 
-img.large {width: 100%;}
+img.large {width: 100%;}/* deze code voorziet ieder element dat geen kader heeft van een kader */
 
-body, section, img {border: 2px solid #B1B1B1;border-radius: 16px;}
+body, section, img {border: 2px solid #B1B1B1;border-radius: 16px;}/* deze code zorgt ervoor dat je webpagina er op schermen van allerlei groottes goed uitziet */
 
 @media all and (min-width: 900px) {article {float: left;width: 66%;}aside {float: left;padding-left: 24px;width: 34%;}footer {clear: both;}}
 
