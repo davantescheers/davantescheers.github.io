@@ -42,7 +42,7 @@ text-decoration: underline;
 }
 
 nav li.selected {
-color: #606060;}/* biografieeÌˆn */section {
+color: gray;}/section {
 background-color: white;
 margin-bottom: 24px;
 min-height: 320px;
