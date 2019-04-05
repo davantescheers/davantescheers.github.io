@@ -66,12 +66,12 @@ background-color: #FCAB68;
 td {
 background-color: #BA99C0;
 }
-p.top-tip {
+p.steve-jobs {
 border: 4px solid #0000FF;
 border-radius: 10px;
 padding: 1em;}
-p.top-tip::before {
+p.steve-jobs::before {
 color: #111111;
-content:"   "; 
+content:"   ";
 font-weight: bold;
 }
