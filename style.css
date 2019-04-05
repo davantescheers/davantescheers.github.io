@@ -72,6 +72,6 @@ border-radius: 10px;
 padding: 1em;}
 p.top-tip::before {
 color: #111111;
-content:"";
+content:"  : "; 
 font-weight: bold;
 }
